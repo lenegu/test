@@ -1,0 +1,54 @@
+<html>
+<head>
+	     <style  type="text/css" media="screen"> 
+        ul  li { 
+        list-style-type:none; 
+        } 
+     </style>
+</head>
+<meta charset="utf-8">
+<script
+			  src="https://code.jquery.com/jquery-3.6.0.min.js"
+			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			  crossorigin="anonymous"></script>
+<body>
+	<table border="1" width="30%" cellpadding="5">
+	<input type="text" name= "bdate" class="bdate"> <br>
+	<button class="otpravka">Poisk</button>
+
+
+
+<script>
+	$(document).ready (function () {
+            $("button.otpravka").on("click", function() {
+                var bdateValue =  $('input.bdate').val();
+
+
+                $.ajax({
+                  method: "POST",
+                  url: "some.php",
+                  data: { bdate:bdateValue},
+                  success: function(response)
+            {
+
+
+                    $('#menu_table_data').html(response);
+
+           }
+                })
+
+
+                 $('input.bdate').val(); 
+
+
+            })
+    })
+
+
+
+</script>
+
+</body>
+</html>
+
+
